@@ -252,7 +252,7 @@ void qMRMLPlannerModelHierarchyModel
       {
         if(planes->GetNthMarkupAssociatedNodeID(i).compare(node->GetID()) == 0)
         {
-          visible = planes->GetNthMarkupVisibility(i);
+          visible = true; //planes->GetNthMarkupVisibility(i);
           break;
         }
       }
@@ -311,7 +311,7 @@ void qMRMLPlannerModelHierarchyModel
       {
         if(planes->GetNthMarkupAssociatedNodeID(i).compare(node->GetID()) == 0)
         {
-          planes->SetNthMarkupVisibility(i, item->checkState() == Qt::Checked ? true : false);
+//          planes->SetNthMarkupVisibility(i, item->checkState() == Qt::Checked ? true : false);
           break;
         }
       }
@@ -398,7 +398,7 @@ void qMRMLPlannerModelHierarchyModel::setPlaneVisibility(vtkMRMLNode* node, bool
   Q_D(qMRMLPlannerModelHierarchyModel);
   //this->itemFromNode(node, d->PlanesVisibilityColumn)->setCheckState(visible ? Qt::Checked : Qt::Unchecked);
   vtkMRMLMarkupsPlanesNode* planes = d->planesNode(this->mrmlScene(), node);
-  planes->SetNthMarkupVisibility(0, visible);
+//  planes->SetNthMarkupVisibility(0, visible);
 
 }
 

@@ -26,7 +26,7 @@
 #include <vtkMRMLApplicationLogic.h>
 #include <vtkMRMLDisplayableManagerGroup.h>
 #include <vtkMRMLInteractionNode.h>
-#include <vtkMRMLMarkupsClickCounter.h>
+//#include <vtkMRMLMarkupsClickCounter.h>
 #include <vtkMRMLModelDisplayableManager.h>
 #include <vtkMRMLScene.h>
 #include <vtkMRMLSelectionNode.h>
@@ -438,7 +438,7 @@ void vtkMRMLMarkupsPlanesDisplayableManager3D::vtkInternal
   for (size_t n = 0; n < pipeline->Widgets.size(); ++n)
     {
     vtkImplicitPlaneWidget2* widget = pipeline->Widgets[n];
-    bool visible = planeNode ? planeNode->GetNthMarkupVisibility(n) : false;
+    bool visible = true; //planeNode ? planeNode->GetNthMarkupVisibility(n) : false;
     widget->SetEnabled(visible);
 
     int processEvents = planeNode->GetLocked() ? 0 :
@@ -527,9 +527,9 @@ std::vector<int> vtkMRMLMarkupsPlanesDisplayableManager3D::vtkInternal
 {
   std::vector<int> events;
   events.push_back(vtkMRMLDisplayableNode::DisplayModifiedEvent);
-  events.push_back(vtkMRMLMarkupsPlanesNode::MarkupAddedEvent);
-  events.push_back(vtkMRMLMarkupsPlanesNode::MarkupRemovedEvent);
-  events.push_back(vtkMRMLMarkupsPlanesNode::NthMarkupModifiedEvent);
+  //events.push_back(vtkMRMLMarkupsPlanesNode::MarkupAddedEvent);
+  //events.push_back(vtkMRMLMarkupsPlanesNode::MarkupRemovedEvent);
+  //events.push_back(vtkMRMLMarkupsPlanesNode::NthMarkupModifiedEvent);
   events.push_back(vtkMRMLMarkupsPlanesNode::PointModifiedEvent);
   events.push_back(vtkCommand::ModifiedEvent);
   return events;
